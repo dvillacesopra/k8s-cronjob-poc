@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.basename }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.basename }}
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      completionMode: NonIndexed
+      template:
+        spec:
+          containers:
+          - name: acronjobcontainer
+            image: hazelcastguides/hazelcast-client:latest
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+              - name: config-volume
+                mountPath: /client.py
+                subPath: client.py
+          volumes:
+            - name: config-volume
+              configMap:
+                name: {{ .Values.basename }}
+          # restartPolicy: OnFailure
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 15

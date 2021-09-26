@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.basename }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.basename }}
+data:
+  client.py: |
+    import hazelcast
+    import logging
+    import random
+    import time
+    import traceback
+
+    if __name__ == "__main__":
+        logging.basicConfig()
+        logging.getLogger().setLevel(logging.INFO)
+
+        client = hazelcast.HazelcastClient(
+            cluster_members=["hazelcast"]
+        )
+
+        try:
+            # my_map = client.get_map("map").blocking()
+            my_map = client.get_map("map")
+            random_key = random.randint(1, 100000)
+            value = str(random_key)
+            my_map.put("key", value)
+            print("New value set: " + value)
+        except Exception as err:
+            traceback.print_tb(err.__traceback__)
+
+        client.shutdown()

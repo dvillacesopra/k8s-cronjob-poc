@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.basename }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.basename }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5701
+  selector:
+    app.kubernetes.io/name: {{ .Values.basename }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.basename }}-mng
+  labels:
+    app.kubernetes.io/name: {{ .Values.basename }}-mng
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.mngPort }}
+  selector:
+    app.kubernetes.io/name: {{ .Values.basename }}-mng
