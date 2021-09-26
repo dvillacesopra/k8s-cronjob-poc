@@ -32,7 +32,7 @@ And visit the SQL Browser feature (<http://localhost:8081/clusters/dev/sql-brows
 > helm uninstall --debug cronjobpoc
 ```
 
-## REeference links
+## Reference links
 
 - <https://kubernetes.io/docs/tasks/tools/>
 - <https://kubernetes.io/docs/reference/kubectl/overview/>
