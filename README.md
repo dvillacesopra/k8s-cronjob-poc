@@ -16,15 +16,15 @@ Inside of the directory with all the content of this project:
 > helm install --debug cronjobpoc .
 ```
 
-To visit the Hazelcast Management Center, wait one minute until the install process finnish internal initialization tasks and execute following command on a new shell process:
+Before continue, wait one minute (or one and a half) until the installation process finish the internal initialization task, so you can execute following command on a new shell process:
 
 ```shell
 > kubectl port-forward -n cronjobpoc service/hazelcast-mng 8081:8080
 ```
 
-If no error is printed, open the browser and visit the link <http://localhost:8081>
+If no error is printed, you can visit the Hazelcast Management Center by opening the browser and visit the link <http://localhost:8081>
 
-And visit the SQL Browser feature (<http://localhost:8081/clusters/dev/sql-browser>) to query for the entries each time a job finish successfully.
+Specifically, you can visit the SQL Browser feature (<http://localhost:8081/clusters/dev/sql-browser>) to query for the entries each time a job finish successfully.
 
 ### UNINSTALL
 
