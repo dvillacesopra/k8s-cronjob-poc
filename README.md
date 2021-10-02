@@ -34,7 +34,7 @@ Specifically, you can visit the SQL Browser feature (<http://localhost:8081/clus
 
 ## DEPLOY ON OKTETO
 
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/#/deploy?repository=https://github.com/dvillacesopra/k8s-cronjob-poc)
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/#/deploy?repository=https://github.com/dvillacesopra/k8s-cronjob-poc&branch=master)
 
 ## Reference links
 
