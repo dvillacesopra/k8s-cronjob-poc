@@ -32,6 +32,10 @@ Specifically, you can visit the SQL Browser feature (<http://localhost:8081/clus
 > helm uninstall --debug cronjobpoc
 ```
 
+## DEPLOY ON OKTETO
+
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
+
 ## Reference links
 
 - <https://kubernetes.io/docs/tasks/tools/>
